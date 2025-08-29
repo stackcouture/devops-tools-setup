@@ -171,64 +171,67 @@ terraform apply
 ├── outputs.tf              # Exposed outputs like server IPs or URLs
 └── README.md               # This documentation
 ```
+--- 
 
 ## Configuration
 
-```bash 
-    Key variables include:
+Key variables include:
 
-    region — Cloud region for deployment (e.g., us-east-1, ap-south-1)
+- **`region`** – Cloud region for deployment  
+  _Example:_ `ap-south-1`, `us-east-1`
 
-    instance_type — Size of server instance (e.g., t3.medium, Standard_B2s)
+- **`instance_type`** – Size of server instance  
+  _Example:_ `t3.medium`, `Standard_B2s`
 
-    tool_ports — Ports for services (e.g., 9000 for SonarQube, 8081 for Nexus, 8082 for Dependency‑Track)
+- **`tool_ports`** – Ports for deployed tools and services  
+  _Example:_  
+  - `9000` for SonarQube  
+  - `8081` for Nexus  
+  - `8082` for Dependency‑Track
 
-    Customize these in terraform.tfvars or override using -var flags.
+You can customize these values in the `terraform.tfvars` file or override them at runtime using the `-var` flag:
+
+```bash
+terraform apply -var="instance_type=t3.medium" -var="region=ap-south-1"
+
 ```
 
 ## Usage
 
-```bash 
+After deployment, the following services will be accessible via the public IP of the respective EC2 instance:
 
-After deployment:
+- **Jenkins:**  
+  `http://<server-ip>:<jenkins-track-port>`
 
-Jenkins will be at http://<server-ip>:<jenkins-track-port>
+- **SonarQube:**  
+  `http://<server-ip>:<sonarqube-port>`
 
-SonarQube will be accessible at http://<server-ip>:<sonarqube-port>
+- **Nexus:**  
+  `http://<server-ip>:<nexus-port>`
 
-Nexus will be available at http://<server-ip>:<nexus-port>
+- **Dependency‑Track:**  
+  `http://<server-ip>:<dp-track-port>`
 
-Dependency‑Track will be at http://<server-ip>:<dp-track-port>
-
-Use credentials specified during deployment to log in and configure each tool.
-
-```
+> 🔐 Use the credentials specified during deployment to log in and configure each tool.
+---
 
 ## Outputs
 
-```bash 
-Outputs are defined in the outputs.tf file and may include:
+Outputs are defined in the `outputs.tf` file and may include:
 
-server_ip — Your server’s public/private IP
+- **`server_ip`** — Your server’s public or private IP address
+- **`sonarqube_url`** — Full URL to access SonarQube
+- **`nexus_url`** — Full URL to access Nexus
+- **`dp_track_url`** — Full URL to access Dependency‑Track
 
-sonarqube_url — Full URL to access SonarQube
+These outputs will be displayed after a successful `terraform apply`.
 
-nexus_url — Full URL to access Nexus
-
-dp_track_url — Full URL to access Dependency‑Track
-
-You’ll see these after a successful apply.
-
-```
+---
 
 ## Contributing
 
-```bash 
 Contributions are welcome! Here’s how you can help:
 
-Submit issues or feature requests via GitHub Issues
-
-Fork the repo and submit pull requests
-
-Add support for additional tools or environments
-```
+- Submit issues or feature requests via GitHub Issues.
+- Fork the repository and submit pull requests.
+- Add support for additional tools or environments.
