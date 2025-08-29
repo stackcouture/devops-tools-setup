@@ -127,13 +127,19 @@ Ensure you have:
 - Credentials configured for your provider (`aws configure`, etc.)
 - Optional: `git` for cloning the repo
 
+---
+
 ## Getting Started
 
 **Clone the repo:**
-   ```bash
+
+```bash
    git clone https://github.com/stackcouture/devops-tools-setup.git
    cd devops-tools-setup
 ```
+
+---
+
 ### Deployment Instructions
 
 Follow the steps below to initialize and deploy the Terraform infrastructure:
@@ -157,6 +163,7 @@ terraform plan
 ```bash
 terraform apply
 ```
+---
 
 ## Directory Structure
 
@@ -193,9 +200,9 @@ You can customize these values in the `terraform.tfvars` file or override them a
 
 ```bash
 terraform apply -var="instance_type=t3.medium" -var="region=ap-south-1"
-
 ```
 ---
+
 ## Usage
 
 After deployment, the following services will be accessible via the public IP of the respective EC2 instance:
