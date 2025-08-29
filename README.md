@@ -108,5 +108,22 @@ terraform apply
     Customize these in terraform.tfvars or override using -var flags.
 ```
 
+## Usage
+
+```bash 
+
+After deployment:
+
+Jenkins will be at http://<server-ip>:<jenkins-track-port>
+
+SonarQube will be accessible at http://<server-ip>:<sonarqube-port>
+
+Nexus will be available at http://<server-ip>:<nexus-port>
+
+Dependency‑Track will be at http://<server-ip>:<dp-track-port>
+
+Use credentials specified during deployment to log in and configure each tool.
+
+```
 
 
