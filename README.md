@@ -76,47 +76,45 @@ It can be extended easily to include additional tools or environments in the fut
 
 > 💡 Each AZ likely hosts at least two subnets to provide redundancy and high availability.
 
-4. Security Groups
+## 4. Security Groups
 
-    Jenkins SG: Jenkins-SG
-    Artifact Analysis SG: Artificact-analysis-SG
-    Bastion Host SG: Bastion-SG
+- **Jenkins SG:** `Jenkins-SG`
+- **Artifact Analysis SG:** `Artificact-analysis-SG`
+- **Bastion Host SG:** `Bastion-SG`
 
-    These security groups control inbound/outbound traffic for each respective EC2 instance group.
+> These security groups control inbound/outbound traffic for each respective EC2 instance group.
 
-5. Route Table
-    Name: Public-RT
-    Associated with public subnets
+## 5. Route Table
 
-    Routes:
-        Local VPC traffic
-        Default route (0.0.0.0/0) via the Internet Gateway for public access
+- **Name:** `Public-RT`
+- **Associated With:** Public subnets
 
-6. EC2 Instances
+**Routes:**
+- Local VPC traffic
+- Default route (`0.0.0.0/0`) via the Internet Gateway for public access
 
-    Jenkins Server
-        Type: t3.small
-        Tag: Jenkins Server
+## 6. EC2 Instances
 
-        Likely placed in a public subnet to allow webhook/API access.
+### Jenkins Server
+- **Type:** `t3.small`
+- **Tag:** `Jenkins Server`
+- Likely placed in a public subnet to allow webhook/API access.
 
-    Jenkins Agent
-        Type: t3.small
-        Tag: Jenkins Agent
+### Jenkins Agent
+- **Type:** `t3.small`
+- **Tag:** `Jenkins Agent`
+- Works alongside the Jenkins master node to execute CI/CD jobs.
 
-        Works alongside the Jenkins master node to execute CI/CD jobs.
+### Artifact & Analysis Server
+- **Type:** `t3.large`
+- **Tag:** `Artifact and Analysis Server`
+- Could be used for hosting tools like SonarQube, Nexus, or custom artifact repositories.
 
-    Artifact & Analysis Server
-        Type: t3.large
-        Tag: Artifact and Analysis Server
-
-        Could be used for hosting tools like SonarQube, Nexus, or custom artifact repositories.
-
-    Bastion Host
-        Type: t3.medium
-        Tag: Bastion Host
-
-        Used for secure SSH access to instances in private subnets (though your setup currently only mentions public subnets).
+### Bastion Host
+- **Type:** `t3.medium`
+- **Tag:** `Bastion Host`
+- Used for secure SSH access to instances in private subnets  
+  *(though your setup currently only includes public subnets)*.
 
 ---
 
