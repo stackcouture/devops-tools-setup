@@ -51,29 +51,30 @@ It can be extended easily to include additional tools or environments in the fut
     | Tenancy          | `default`                     |
 
 ## 2. Internet Gateway
-    - **Name:**: `VPC-IGW`
-    - `Attached to Dev-VPC to allow internet access for public subnets.`
+    - **Name:** `VPC-IGW`
+    - Attached to `Dev-VPC` to allow internet access for public subnets.
 
-3. Subnets
+## 3. Subnets
 
-    Public Subnets
-    Names:
-        Public-Subnet-1
-        Public-Subnet-2
-        Public-Subnet-3
-        Public-Subnet-4
+### Public Subnets
 
-    CIDRs:
-        10.0.0.0/26
-        10.0.0.64/26
-        10.0.0.128/26
-        10.0.0.192/26
+- **Names:**
+  - `Public-Subnet-1`
+  - `Public-Subnet-2`
+  - `Public-Subnet-3`
+  - `Public-Subnet-4`
 
-    Availability Zones:
-        ap-south-1a
-        ap-south-1b
+- **CIDR Blocks:**
+  - `10.0.0.0/26`
+  - `10.0.0.64/26`
+  - `10.0.0.128/26`
+  - `10.0.0.192/26`
 
-        Each AZ likely hosts at least two subnets to provide redundancy and high availability.
+- **Availability Zones:**
+  - `ap-south-1a`
+  - `ap-south-1b`
+
+> 💡 Each AZ likely hosts at least two subnets to provide redundancy and high availability.
 
 4. Security Groups
 
