@@ -1,0 +1,8 @@
+.terraform
+jenkins-server-key.pem 
+.terraform.lock.hcl 
+tfplan
+jenkins-agent-key.pem
+sonar-server-key.pem
+keys/*
+scripts
