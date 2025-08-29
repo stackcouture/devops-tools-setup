@@ -38,114 +38,82 @@ It can be extended easily to include additional tools or environments in the fut
   - Dependency‑Track
 - Orchestrated entirely with Terraform for infrastructure provisioning and configuration.
 
-```bash 
-🏗️ Terraform Infrastructure Architecture Overview
+### Terraform Infrastructure Architecture Overview
 
-🔶 1. Virtual Private Cloud (VPC)
+1. Virtual Private Cloud (VPC)
+    Name: Dev-VPC
+    CIDR Block: 10.0.0.0/16
+    DNS Support: Enabled (enable_dns_support = true)
+    DNS Hostnames: Enabled (enable_dns_hostnames = true)
+    Tenancy: Default
 
-Name: Dev-VPC
+2. Internet Gateway
+    Name: VPC-IGW
+    Attached to Dev-VPC to allow internet access for public subnets.
 
-CIDR Block: 10.0.0.0/16
+3. Subnets
 
-DNS Support: Enabled (enable_dns_support = true)
+    Public Subnets
+    Names:
+        Public-Subnet-1
+        Public-Subnet-2
+        Public-Subnet-3
+        Public-Subnet-4
 
-DNS Hostnames: Enabled (enable_dns_hostnames = true)
+    CIDRs:
+        10.0.0.0/26
+        10.0.0.64/26
+        10.0.0.128/26
+        10.0.0.192/26
 
-Tenancy: Default
+    Availability Zones:
+        ap-south-1a
+        ap-south-1b
 
-🌐 2. Internet Gateway
+        Each AZ likely hosts at least two subnets to provide redundancy and high availability.
 
-Name: VPC-IGW
+4. Security Groups
 
-Attached to Dev-VPC to allow internet access for public subnets.
+    Jenkins SG: Jenkins-SG
+    Artifact Analysis SG: Artificact-analysis-SG
+    Bastion Host SG: Bastion-SG
 
-🌍 3. Subnets
-✅ Public Subnets
+    These security groups control inbound/outbound traffic for each respective EC2 instance group.
 
-Names:
+5. Route Table
+    Name: Public-RT
+    Associated with public subnets
 
-Public-Subnet-1
+    Routes:
+        Local VPC traffic
+        Default route (0.0.0.0/0) via the Internet Gateway for public access
 
-Public-Subnet-2
+6. EC2 Instances
 
-Public-Subnet-3
+    Jenkins Server
+        Type: t3.small
+        Tag: Jenkins Server
 
-Public-Subnet-4
+        Likely placed in a public subnet to allow webhook/API access.
 
-CIDRs:
+    Jenkins Agent
+        Type: t3.small
+        Tag: Jenkins Agent
 
-10.0.0.0/26
+        Works alongside the Jenkins master node to execute CI/CD jobs.
 
-10.0.0.64/26
+    Artifact & Analysis Server
+        Type: t3.large
+        Tag: Artifact and Analysis Server
 
-10.0.0.128/26
+        Could be used for hosting tools like SonarQube, Nexus, or custom artifact repositories.
 
-10.0.0.192/26
+    Bastion Host
+        Type: t3.medium
+        Tag: Bastion Host
 
-Availability Zones:
+        Used for secure SSH access to instances in private subnets (though your setup currently only mentions public subnets).
 
-ap-south-1a
-
-ap-south-1b
-
-Each AZ likely hosts at least two subnets to provide redundancy and high availability.
-
-🔒 4. Security Groups
-
-Jenkins SG: Jenkins-SG
-
-Artifact Analysis SG: Artificact-analysis-SG
-
-Bastion Host SG: Bastion-SG
-
-These security groups control inbound/outbound traffic for each respective EC2 instance group.
-
-🛣️ 5. Route Table
-
-Name: Public-RT
-
-Associated with public subnets
-
-Routes:
-
-Local VPC traffic
-
-Default route (0.0.0.0/0) via the Internet Gateway for public access
-
-🖥️ 6. EC2 Instances
-
-🧰 Jenkins Server
-
-Type: t3.small
-
-Tag: Jenkins Server
-
-Likely placed in a public subnet to allow webhook/API access.
-
-🧪 Jenkins Agent
-
-Type: t3.small
-
-Tag: Jenkins Agent
-
-Works alongside the Jenkins master node to execute CI/CD jobs.
-
-📦 Artifact & Analysis Server
-
-Type: t3.large
-
-Tag: Artifact and Analysis Server
-
-Could be used for hosting tools like SonarQube, Nexus, or custom artifact repositories.
-
-🔐 Bastion Host
-
-Type: t3.medium
-
-Tag: Bastion Host
-
-Used for secure SSH access to instances in private subnets (though your setup currently only mentions public subnets).
-```
 ---
 
 ## Prerequisites
