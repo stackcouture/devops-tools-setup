@@ -242,3 +242,8 @@ Contributions are welcome! Here’s how you can help:
 - Submit issues or feature requests via GitHub Issues.
 - Fork the repository and submit pull requests.
 - Add support for additional tools or environments.
+
+---
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
