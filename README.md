@@ -126,4 +126,31 @@ Use credentials specified during deployment to log in and configure each tool.
 
 ```
 
+## Outputs
 
+```bash 
+Outputs are defined in the outputs.tf file and may include:
+
+server_ip — Your server’s public/private IP
+
+sonarqube_url — Full URL to access SonarQube
+
+nexus_url — Full URL to access Nexus
+
+dp_track_url — Full URL to access Dependency‑Track
+
+You’ll see these after a successful apply.
+
+```
+
+## Contributing
+
+```bash 
+Contributions are welcome! Here’s how you can help:
+
+Submit issues or feature requests via GitHub Issues
+
+Fork the repo and submit pull requests
+
+Add support for additional tools or environments
+```
