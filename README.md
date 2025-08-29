@@ -40,16 +40,19 @@ It can be extended easily to include additional tools or environments in the fut
 
 ### Terraform Infrastructure Architecture Overview
 
-1. Virtual Private Cloud (VPC)
-    Name: Dev-VPC
-    CIDR Block: 10.0.0.0/16
-    DNS Support: Enabled (enable_dns_support = true)
-    DNS Hostnames: Enabled (enable_dns_hostnames = true)
-    Tenancy: Default
+## 1. Virtual Private Cloud (VPC)
 
-2. Internet Gateway
-    Name: VPC-IGW
-    Attached to Dev-VPC to allow internet access for public subnets.
+    | Property         | Value                         |
+    |------------------|-------------------------------|
+    | Name             | `Dev-VPC`                     |
+    | CIDR Block       | `10.0.0.0/16`                 |
+    | DNS Support      | Enabled (`enable_dns_support = true`) |
+    | DNS Hostnames    | Enabled (`enable_dns_hostnames = true`) |
+    | Tenancy          | `default`                     |
+
+## 2. Internet Gateway
+    - **Name:**: `VPC-IGW`
+    - `Attached to Dev-VPC to allow internet access for public subnets.`
 
 3. Subnets
 
