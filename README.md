@@ -195,7 +195,7 @@ You can customize these values in the `terraform.tfvars` file or override them a
 terraform apply -var="instance_type=t3.medium" -var="region=ap-south-1"
 
 ```
-
+---
 ## Usage
 
 After deployment, the following services will be accessible via the public IP of the respective EC2 instance:
