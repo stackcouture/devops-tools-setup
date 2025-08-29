@@ -94,5 +94,19 @@ terraform apply
 └── README.md               # This documentation
 ```
 
+## Configuration
+
+```bash 
+    Key variables include:
+
+    region — Cloud region for deployment (e.g., us-east-1, ap-south-1)
+
+    instance_type — Size of server instance (e.g., t3.medium, Standard_B2s)
+
+    tool_ports — Ports for services (e.g., 9000 for SonarQube, 8081 for Nexus, 8082 for Dependency‑Track)
+
+    Customize these in terraform.tfvars or override using -var flags.
+```
+
 
 
