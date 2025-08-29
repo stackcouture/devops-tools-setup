@@ -79,3 +79,20 @@ terraform plan
 ```bash
 terraform apply
 ```
+
+## Directory Structure
+
+```bash
+.
+|── keys/
+├── modules/                # Reusable modules for each tool (e.g., SonarQube, Nexus)
+├── provider.tf             # Cloud provider configuration
+├── variables.tf            # Variable definitions and documentation
+├── terraform.tfvars        # Example values for configuration
+├── main.tf                 # Root Terraform configuration invoking modules
+├── outputs.tf              # Exposed outputs like server IPs or URLs
+└── README.md               # This documentation
+```
+
+
+
