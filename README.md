@@ -56,7 +56,7 @@ It can be extended easily to include additional tools or environments in the fut
 
 #### 3. Subnets
 
-### Public Subnets
+##### Public Subnets
 
 - **Names:**
   - `Public-Subnet-1`
