@@ -144,7 +144,7 @@ Ensure you have:
 
 Follow the steps below to initialize and deploy the Terraform infrastructure:
 
-# 1. Initialize Terraform
+### 1. Initialize Terraform
 
 This command will initialize the working directory and download necessary provider plugins:
 
