@@ -1,5 +1,14 @@
 ## DevOps Tools Setup
 
+![View Only](https://img.shields.io/badge/license-view--only-red)
+![Status](https://img.shields.io/badge/usage-portfolio%20only-blue)
+
+> ⚠️ **Notice:** This repository is made publicly available for **portfolio evaluation purposes only**.  
+> **You are not permitted to copy, reuse, distribute, or modify this code** in any form.  
+> All rights are reserved by the author. Please contact [Naveen R](naveenramlu28@gmail.com) for permission.
+
+---
+
 This repository provides a Terraform configuration to provision and orchestrate your **DevOps tool stack**—including SonarQube, Nexus, and Dependency‑Track—on a dedicated server (or servers).
 
 ### Table of Contents
