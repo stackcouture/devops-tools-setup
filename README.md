@@ -219,7 +219,8 @@ After deployment, the following services will be accessible via the public IP of
 - **Dependency‑Track:**  
   `http://<server-ip>:<dp-track-port>`
 
-> 🔐 Use the credentials specified during deployment to log in and configure each tool.
+> Use the credentials specified during deployment to log in and configure each tool.
+
 ---
 
 ### Outputs
@@ -244,6 +245,10 @@ Contributions are welcome! Here’s how you can help:
 - Add support for additional tools or environments.
 
 ---
+
 ### License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is provided under a **view-only** license for review and portfolio purposes.  
+See the [LICENSE](./LICENSE) file for details.
+
+---
