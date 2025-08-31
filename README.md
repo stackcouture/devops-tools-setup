@@ -1,8 +1,8 @@
-# DevOps Tools Setup
+## DevOps Tools Setup
 
 This repository provides a Terraform configuration to provision and orchestrate your **DevOps tool stack**—including SonarQube, Nexus, and Dependency‑Track—on a dedicated server (or servers).
 
-## Table of Contents
+### Table of Contents
 
 - [Overview](#overview)  
 - [Architecture](#architecture)  
@@ -17,7 +17,7 @@ This repository provides a Terraform configuration to provision and orchestrate 
 
 ---
 
-## Overview
+### Overview
 
 This Terraform project simplifies the deployment of key DevOps tools in a modular, scalable manner. It currently supports the provisioning of:
 - **SonarQube** — for code quality analysis  
@@ -28,7 +28,7 @@ It can be extended easily to include additional tools or environments in the fut
 
 ---
 
-## Architecture
+### Architecture
 
 - A single server (could be virtualized or cloud-hosted) running:
   - Jenkins Server
@@ -118,7 +118,7 @@ It can be extended easily to include additional tools or environments in the fut
 
 ---
 
-## Prerequisites
+### Prerequisites
 
 Ensure you have:
 
@@ -129,7 +129,7 @@ Ensure you have:
 
 ---
 
-## Getting Started
+### Getting Started
 
 **Clone the repo:**
 
@@ -180,7 +180,7 @@ terraform apply
 ```
 --- 
 
-## Configuration
+### Configuration
 
 Key variables include:
 
@@ -203,7 +203,7 @@ terraform apply -var="instance_type=t3.medium" -var="region=ap-south-1"
 ```
 ---
 
-## Usage
+### Usage
 
 After deployment, the following services will be accessible via the public IP of the respective EC2 instance:
 
@@ -222,7 +222,7 @@ After deployment, the following services will be accessible via the public IP of
 > 🔐 Use the credentials specified during deployment to log in and configure each tool.
 ---
 
-## Outputs
+### Outputs
 
 Outputs are defined in the `outputs.tf` file and may include:
 
@@ -235,7 +235,7 @@ These outputs will be displayed after a successful `terraform apply`.
 
 ---
 
-## Contributing
+### Contributing
 
 Contributions are welcome! Here’s how you can help:
 
@@ -244,6 +244,6 @@ Contributions are welcome! Here’s how you can help:
 - Add support for additional tools or environments.
 
 ---
-## License
+### License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
