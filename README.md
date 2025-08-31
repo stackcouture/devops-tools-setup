@@ -40,7 +40,7 @@ It can be extended easily to include additional tools or environments in the fut
 
 ### Terraform Infrastructure Architecture Overview
 
-## 1. Virtual Private Cloud (VPC)
+#### 1. Virtual Private Cloud (VPC)
 
     | Property         | Value                         |
     |------------------|-------------------------------|
@@ -50,11 +50,11 @@ It can be extended easily to include additional tools or environments in the fut
     | DNS Hostnames    | Enabled (`enable_dns_hostnames = true`) |
     | Tenancy          | `default`                     |
 
-## 2. Internet Gateway
+#### 2. Internet Gateway
     - **Name:** `VPC-IGW`
     - Attached to `Dev-VPC` to allow internet access for public subnets.
 
-## 3. Subnets
+#### 3. Subnets
 
 ### Public Subnets
 
@@ -76,7 +76,7 @@ It can be extended easily to include additional tools or environments in the fut
 
 > 💡 Each AZ likely hosts at least two subnets to provide redundancy and high availability.
 
-## 4. Security Groups
+#### 4. Security Groups
 
 - **Jenkins SG:** `Jenkins-SG`
 - **Artifact Analysis SG:** `Artificact-analysis-SG`
@@ -84,7 +84,7 @@ It can be extended easily to include additional tools or environments in the fut
 
 > These security groups control inbound/outbound traffic for each respective EC2 instance group.
 
-## 5. Route Table
+#### 5. Route Table
 
 - **Name:** `Public-RT`
 - **Associated With:** Public subnets
@@ -93,24 +93,24 @@ It can be extended easily to include additional tools or environments in the fut
 - Local VPC traffic
 - Default route (`0.0.0.0/0`) via the Internet Gateway for public access
 
-## 6. EC2 Instances
+#### 6. EC2 Instances
 
-### Jenkins Server
+#### Jenkins Server
 - **Type:** `t3.small`
 - **Tag:** `Jenkins Server`
 - Likely placed in a public subnet to allow webhook/API access.
 
-### Jenkins Agent
+#### Jenkins Agent
 - **Type:** `t3.small`
 - **Tag:** `Jenkins Agent`
 - Works alongside the Jenkins master node to execute CI/CD jobs.
 
-### Artifact & Analysis Server
+#### Artifact & Analysis Server
 - **Type:** `t3.large`
 - **Tag:** `Artifact and Analysis Server`
 - Could be used for hosting tools like SonarQube, Nexus, or custom artifact repositories.
 
-### Bastion Host
+#### Bastion Host
 - **Type:** `t3.medium`
 - **Tag:** `Bastion Host`
 - Used for secure SSH access to instances in private subnets  
@@ -144,7 +144,7 @@ Ensure you have:
 
 Follow the steps below to initialize and deploy the Terraform infrastructure:
 
-### 1. Initialize Terraform
+# 1. Initialize Terraform
 
 This command will initialize the working directory and download necessary provider plugins:
 
